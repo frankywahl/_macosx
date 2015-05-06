@@ -37,14 +37,6 @@ else
   echo "${RED}Attention: ${DEFAULT} iTerm not found"
 fi
 
-# BetterTouchTool
-if [[ -e /Applications/BetterTouchTool.app/Contents/MacOS/BetterTouchTool ]]; then 
-  #ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.BetterTouchTool.plist ~/Library/LaunchAgents/Franky.BetterTouchTool.plist
-  echo "Better Touch Tool Plist file not installed"
-else 
-  echo "${RED}Attention: ${DEFAULT} BetterTouchTool not found"
-fi
-
 echo "Do you want to install system specific configurations (This is still experimental) [y/n]"
 read SYSTEM_SPECIFIC
 while [[ "$SYSTEM_SPECIFIC" != "y" && "$SYSTEM_SPECIFIC" != "n" ]]
