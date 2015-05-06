@@ -37,6 +37,15 @@ else
   echo "${RED}Attention: ${DEFAULT} iTerm not found"
 fi
 
+# Slate
+if [[ -e /Applications/Slate.app/Contents/MacOS/Slate ]]; then 
+  ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.Slate.plist ~/Library/LaunchAgents/Franky.Slate.plist
+else 
+  echo "${RED}Attention: ${DEFAULT} Slate not found"
+fi
+
+
+
 echo "Do you want to install system specific configurations (This is still experimental) [y/n]"
 read SYSTEM_SPECIFIC
 while [[ "$SYSTEM_SPECIFIC" != "y" && "$SYSTEM_SPECIFIC" != "n" ]]
