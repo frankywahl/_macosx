@@ -31,10 +31,10 @@ else
 fi
 
 # Terminal
-if [[ -e /Applications/Utilities/Terminal.app/Contents/MacOS/Terminal ]]; then 
-  ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.Terminal.plist ~/Library/LaunchAgents/Franky.Terminal.plist
+if [[ -e /Applications/iTerm.app/Contents/MacOS/iTerm ]]; then 
+  ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.iTerm.plist ~/Library/LaunchAgents/Franky.iTerm.plist
 else 
-  echo "${RED}Attention: ${DEFAULT} Terminal not found"
+  echo "${RED}Attention: ${DEFAULT} iTerm not found"
 fi
 
 # BetterTouchTool

@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>Franky.Terminal</string>
+	<string>Franky.iTerm</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal</string>
+		<string>/Applications/iTerm.app/Contents/MacOS/iTerm</string>
 	</array>
 	<key>KeepAlive</key>
 	<true/>
