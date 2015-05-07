@@ -5,46 +5,26 @@ PATH_TO_FILE="$(cd `dirname $0` && pwd)";
 rm ~/Library/LaunchAgents/Franky.*
 
 # Check for LaunchAgents folder folder
-if [[ ! -d ~/Library/LaunchAgents ]]; then
-  mkdir ~/Library/LaunchAgents;
-fi
+mkdir -p ~/Library/LaunchAgents;
 
-# AppCleaner
-if [[ -e /Applications/AppCleaner.app/Contents/MacOS/DaemonManager ]]; then 
-  ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.AppCleaner.plist ~/Library/LaunchAgents/Franky.AppCleaner.plist
-else
-  echo "${RED}Attention: ${DEFAULT} AppCleaner not found"
-fi
+PROGS=(Quicksilver iTerm AppCleaner Slate)
 
-# Quicksilver
+for PROG in ${PROGS[@]}; do
+  echo "Doing ${PROG}"
+  if [[ -e /Applications/${PROG}.app/Contents/MacOS/${PROG} ]]; then 
+    ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.${PROG}.plist ~/Library/LaunchAgents/Franky.${PROG}.plist
+  else 
+    echo "${RED}Attention: ${DEFAULT} ${PROG} not found"
+  fi
+done
+
+# Quicksilver triggers
 if [[ -d ~/Library/Application\ Support/Quicksilver ]]; then 
   rm ~/Library/Application\ Support/Quicksilver/Triggers.plist
-  ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.Quicksilver.plist ~/Library/LaunchAgents/Franky.Quicksilver.plist
   ln -s ${PATH_TO_FILE}/Library/Application\ Support/Quicksilver/Triggers.plist ~/Library/Application\ Support/Quicksilver/Triggers.plist
-  if [[ -e ~/Scripts/MacOS/Window/WindowMgt.sh ]]; then
-    bash ~/Scripts/MacOS/Window/WindowMgt.sh
-  else 
-    echo "${RED}Attention: ${DEFAULT} Quicksilver Keyboard shortcuts not found (snap left and snap right)"
-  fi
 else 
-  echo "${RED}Attention: ${DEFAULT} Quicksilver not found"
+  echo "${RED}Attention: ${DEFAULT} Quicksilver Triggers not installed"
 fi
-
-# Terminal
-if [[ -e /Applications/iTerm.app/Contents/MacOS/iTerm ]]; then 
-  ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.iTerm.plist ~/Library/LaunchAgents/Franky.iTerm.plist
-else 
-  echo "${RED}Attention: ${DEFAULT} iTerm not found"
-fi
-
-# Slate
-if [[ -e /Applications/Slate.app/Contents/MacOS/Slate ]]; then 
-  ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.Slate.plist ~/Library/LaunchAgents/Franky.Slate.plist
-else 
-  echo "${RED}Attention: ${DEFAULT} Slate not found"
-fi
-
-
 
 echo "Do you want to install system specific configurations (This is still experimental) [y/n]"
 read SYSTEM_SPECIFIC
@@ -61,5 +41,4 @@ if [[ "$SYSTEM_SPECIFIC" = "y" ]]; then
   ln -s ${PATH_TO_FILE}/Library/Application\ Support/BetterTouchTool/bttdata2 ~/Library/Application\ Support/BetterTouchtool/bttdata2
   killall Dock
 fi
-
 
