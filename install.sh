@@ -25,12 +25,3 @@ do
   echo "Please tell me if you want to do system specific config? [y/n]"
   read SYSTEM_SPECIFIC
 done
-
-if [[ "$SYSTEM_SPECIFIC" = "y" ]]; then
-  rm -rf ~/Library/Preferences/com.apple.dock.plist
-  ln -s ${PATH_TO_FILE}/Library/Preferences/com.apple.dock.plist ~/Library/Preferences/com.apple.dock.plist
-  rm -rf ~/Library/Application\ Support/BetterTouchtool/bttdata2
-  ln -s ${PATH_TO_FILE}/Library/Application\ Support/BetterTouchTool/bttdata2 ~/Library/Application\ Support/BetterTouchtool/bttdata2
-  killall Dock
-fi
-
