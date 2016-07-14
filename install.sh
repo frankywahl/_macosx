@@ -18,14 +18,6 @@ for PROG in ${PROGS[@]}; do
   fi
 done
 
-# Quicksilver triggers
-if [[ -d ~/Library/Application\ Support/Quicksilver ]]; then 
-  rm ~/Library/Application\ Support/Quicksilver/Triggers.plist
-  ln -s ${PATH_TO_FILE}/Library/Application\ Support/Quicksilver/Triggers.plist ~/Library/Application\ Support/Quicksilver/Triggers.plist
-else 
-  echo "${RED}Attention: ${DEFAULT} Quicksilver Triggers not installed"
-fi
-
 echo "Do you want to install system specific configurations (This is still experimental) [y/n]"
 read SYSTEM_SPECIFIC
 while [[ "$SYSTEM_SPECIFIC" != "y" && "$SYSTEM_SPECIFIC" != "n" ]]
