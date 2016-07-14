@@ -17,11 +17,3 @@ for PROG in ${PROGS[@]}; do
     echo "${RED}Attention: ${DEFAULT} ${PROG} not found"
   fi
 done
-
-echo "Do you want to install system specific configurations (This is still experimental) [y/n]"
-read SYSTEM_SPECIFIC
-while [[ "$SYSTEM_SPECIFIC" != "y" && "$SYSTEM_SPECIFIC" != "n" ]]
-do
-  echo "Please tell me if you want to do system specific config? [y/n]"
-  read SYSTEM_SPECIFIC
-done
