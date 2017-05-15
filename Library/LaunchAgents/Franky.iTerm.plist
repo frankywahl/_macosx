@@ -6,7 +6,7 @@
 	<string>Franky.iTerm</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Applications/iTerm.app/Contents/MacOS/iTerm</string>
+		<string>/Applications/iTerm.app/Contents/MacOS/iTerm2</string>
 	</array>
 	<key>KeepAlive</key>
 	<true/>
