@@ -7,7 +7,7 @@ rm ~/Library/LaunchAgents/Franky.*
 # Check for LaunchAgents folder folder
 mkdir -p ~/Library/LaunchAgents;
 
-PROGS=(Quicksilver iTerm AppCleaner Slate)
+PROGS=(Quicksilver iTerm AppCleaner Hammerspoon)
 
 for PROG in ${PROGS[@]}; do
   echo "Doing ${PROG}"
