@@ -11,7 +11,7 @@ PROGS=(Quicksilver iTerm AppCleaner Hammerspoon)
 
 for PROG in ${PROGS[@]}; do
   echo "Doing ${PROG}"
-  if [[ -e /Applications/${PROG}.app/Contents/MacOS/${PROG} ]]; then 
+  if [[ -d /Applications/${PROG}.app/ ]]; then 
     ln -s ${PATH_TO_FILE}/Library/LaunchAgents/Franky.${PROG}.plist ~/Library/LaunchAgents/Franky.${PROG}.plist
   else 
     echo "${RED}Attention: ${DEFAULT} ${PROG} not found"
